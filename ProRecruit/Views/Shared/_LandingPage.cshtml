@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Photocall Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//tags -->
+    <link href="@Url.Content("~/Content/LandingPage/")css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="@Url.Content("~/Content/LandingPage/")css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/LandingPage/")css/chocolat.css" type="text/css" media="screen">
+    <link href="@Url.Content("~/Content/LandingPage/")css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <link href="@Url.Content("~/Content/LandingPage/")css/fontawesome-all.css" rel="stylesheet">
+    <!-- //for bootstrap working -->
+    <link href="@Url.Content("~/Content/LandingPage/")//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <link href="@Url.Content("~/Content/LandingPage/")//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
+    <link rel="shortcut icon" type="ico" href="@Url.Content("~/Content/LandingPage/")favicon.ico" />
+    <script type="text/javascript" src="@Url.Content("~/Content/LandingPage/")js/jquery-2.2.3.min.js"></script>
+    <script src="@Url.Content("~/Content/LandingPage/")js/responsiveslides.min.js"></script>
+    <script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider4").responsiveSlides({
+				auto: true,
+				pager: true,
+				nav: false,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Content/LandingPage/")js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Content/LandingPage/")js/all.js"></script>
+    <script>
+		$('ul.dropdown-menu li').hover(function () {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+		}, function () {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+		});
+    </script>
+
+    <!-- js -->
+    <!--/tooltip -->
+    <script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip({
+				trigger: 'manual'
+			}).tooltip('show');
+		});
+
+		// $( window ).scroll(function() {
+		// if($( window ).scrollTop() > 10){  // scroll down abit and get the action
+		$(".progress-bar").each(function () {
+			each_bar_width = $(this).attr('aria-valuenow');
+			$(this).width(each_bar_width + '%');
+		});
+
+		//  }
+		// });
+    </script>
+    <!--//tooltip -->
+    <!-- script for responsive tabs -->
+    <script src="@Url.Content("~/Content/LandingPage/")js/easy-responsive-tabs.js"></script>
+    <script>
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#tabInfo');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+			$('#verticalTab').easyResponsiveTabs({
+				type: 'vertical',
+				width: 'auto',
+				fit: true
+			});
+		});
+    </script>
+    <!--// script for responsive tabs -->
+    <!--gallery -->
+    <script src="@Url.Content("~/Content/LandingPage/")js/jquery.chocolat.js"></script>
+    <!--light-box-files -->
+    <script type="text/javascript">
+		$(function () {
+			$('.gallery-grid1 a').Chocolat();
+		});
+    </script>
+    <!-- //gallery -->
+    <!-- Smooth-Scrolling-JavaScript -->
+    <script type="text/javascript" src="@Url.Content("~/Content/LandingPage/")js/easing.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/LandingPage/")js/move-top.js"></script>
+    <script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll, .navbar li a, .footer li a").click(function (event) {
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+    </script>
+    <!-- //Smooth-Scrolling-JavaScript -->
+    <script type="text/javascript">
+		$(document).ready(function () {
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+    </script>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

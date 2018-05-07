@@ -1,0 +1,210 @@
+﻿@model ProRecruit.Candidate
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div><a href="@Url.Action("ExportCVToPDF")">Download PDF </a></div>  
+
+<div class="jumbotron">
+    <h4>Candidate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNIC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNIC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Industry1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Industry1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FunctionalArea1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FunctionalArea1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CareerLevel1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CareerLevel1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentSalary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentSalary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedSalary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedSalary)
+        </dd>
+    </dl>
+</div>
+
+<div class="jumbotron">
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+    </dl>
+</div>
+
+<div class="jumbotron" id="QualificationMulitpleView"></div>
+<br />
+<div class="jumbotron" id="ProjectMultipleView"></div>
+<br />
+<div class="jumbotron" id="ExperienceMultipleView"></div>
+<br />
+<div class="jumbotron" id="SkillMulitpleView"></div>
+<br />
+<div class="jumbotron" id="LanguageMultipleView"></div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "@Url.Action("ProjectsMultipleView", "CV")", success:function (result)
+            {
+                $("#ProjectMultipleView").html(result);
+            }
+        })
+        $.ajax({
+            url: "@Url.Action("LanguageMultipleView", "CV")", success:function (result)
+            {
+                $("#LanguageMultipleView").html(result);
+            }
+        })
+        $.ajax({
+            url: "@Url.Action("QualificationMulitpleView", "CV")", success:function (result)
+            {
+                $("#QualificationMulitpleView").html(result);
+            }
+        })
+        $.ajax({
+            url: "@Url.Action("ExperienceMultipleView", "CV")", success:function (result)
+            {
+                $("#ExperienceMultipleView").html(result);
+            }
+        })
+        $.ajax({
+            url: "@Url.Action("SkillMulitpleView", "CV")", success:function (result)
+            {
+                $("#SkillMulitpleView").html(result);
+            }
+        })
+
+    })
+</script>

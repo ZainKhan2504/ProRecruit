@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Event Registration Form Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="@Url.Content("~/Content/CreateSeekerOraganization/")css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="@Url.Content("~/Content/CreateSeekerOraganization/")js/jquery-2.1.4.min.js"></script>
+    <link href='@Url.Content("~/Content/CreateSeekerOraganization/")//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="@Url.Content("~/Content/CreateSeekerOraganization/")css/jquery-ui.css" />
+    <script src="@Url.Content("~/Content/CreateSeekerOraganization/")js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

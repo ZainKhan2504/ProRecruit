@@ -1,0 +1,211 @@
+﻿@model ProRecruit.Candidate
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand">@Model.FirstName @Model.LastName</a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("Customize CV", "AddCandidateQualifications", "CV")></a>
+                </li>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("View Profile", "Details", "Candidates")></a>
+                </li>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("View All Jobs", "ViewAllJobs", "Jobs")></a>
+                </li>
+                <h3 class="menu-title">Customize Profile</h3>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("Applied Jobs", "ViewJobsAppliedFor", "Jobs")></a>
+                </li>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("Saved Jobs", "ViewSavedJobs", "Jobs")></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+<div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header" style="background-color: #5DBCD2">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+            </div>
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="@Url.Content("~/Content/Dashboard/")images/admin.jpg" alt="User Avatar">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href=""><i class="fa fa-power -off"></i>Logout</a>
+                    </div>
+                </div>
+
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-1">
+                <div class="card-body pb-0">
+                    <div class="dropdown float-right">
+                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu-content">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart1"></canvas>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <div class="dropdown float-right">
+                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu-content">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-3">
+                <div class="card-body pb-0">
+                    <div class="dropdown float-right">
+                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu-content">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                </div>
+
+                <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                    <canvas id="widgetChart3"></canvas>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-4">
+                <div class="card-body pb-0">
+                    <div class="dropdown float-right">
+                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu-content">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                        <canvas id="widgetChart4"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+    </div>
+</div>
+

@@ -1,0 +1,110 @@
+﻿@model ProRecruit.Job
+@{
+    ViewBag.Title = "ApplyForJob";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand">Name</a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("Customize CV", "AddCandidateQualifications", "CV")></a>
+                </li>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("View Profile", "Details", "Candidates")></a>
+                </li>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("View All Jobs", "ViewAllJobs", "Jobs")></a>
+                </li>
+                <h3 class="menu-title">Customize Profile</h3>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("Applied Jobs", "ViewJobsAppliedFor", "Jobs")></a>
+                </li>
+                <li>
+                    <a style="margin-left:50px;" @Html.ActionLink("Saved Jobs", "ViewSavedJobs", "Jobs")></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+<div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header" style="background-color: #5DBCD2">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+            </div>
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="@Url.Content("~/Content/Dashboard/")images/admin.jpg" alt="User Avatar">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href=""><i class="fa fa-power -off"></i>Logout</a>
+                    </div>
+                </div>
+
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li>@Html.ActionLink("Dashboard", "Dashboard", "Candidates")</li>
+                        <li>@Html.ActionLink("View All Jobs", "ViewAllJobs", "Jobs")</li>
+                        <li class="active">Apply For Job</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        @using (Html.BeginForm())
+        {
+        @Html.AntiForgeryToken()
+        <div class="col-lg-6">
+            <div class="card border border-primary">
+                <div class="card-header">
+                    <strong class="card-title"><b>Are you sure you want to apply for this job?</b></strong>
+                </div>
+                <div class="card-body">
+                    <div style="text-align: center;">
+                        <input type="submit" value="Apply" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+

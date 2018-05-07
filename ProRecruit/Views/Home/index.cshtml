@@ -1,0 +1,513 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LandingPage.cshtml";
+}
+<div class="top_header" id="home">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="nav_top_fx_w3layouts_agileits">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top"><img src="@Url.Content("~/Content/LandingPage/")images/logo.png"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="nav_right_top_agile_w3ls">
+                    <ul class="nav navbar-nav">
+                        <li class="active">@Html.ActionLink("Home", "Landing", "Home")</li>
+                        <li><a class="scroll" href="#about">About</a></li>
+                        <li><a class="scroll" href="#team">Team</a></li>
+                        <li><a class="scroll" href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reg/Login <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Registration", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "scroll" })</li>
+                                <li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "scroll" })</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="clearfix"></div>
+</div>
+<!-- banner -->
+<div class="banner_top">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Company Profiles & Reviews</h3>
+                        <p>ProRecruit will show the compelete company profile before you apply as well as employees reviews.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item2">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Career Advice</h3>
+                        <p>ProRecruit has the expert advice you need for your job search and career interview tips, we will also provide the list of top 100 companies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item3">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Education Programs</h3>
+                        <p>Need extra skills to make yourself more marketable, We will help you get the training you need to succeed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item4">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Resume Help</h3>
+                        <p>Upload your resume, and you'll have the opportunity for a free expert critique that will help make sure your value shines through. And for a fee, our pros will give that resume a full-on makeover.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="fa fa-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!-- The Modal -->
+    </div>
+</div>
+<!--//banner -->
+<!--/ab-->
+<div class="banner_bottom" id="about">
+    <div class="container">
+        <h3 class="tittle_w3ls">About Company</h3>
+        <div class="inner_sec_info_agile_w3_info">
+            <div class="help_full">
+                <ul class="rslides" id="slider4">
+                    <li>
+                        <div class="respon_info_img">
+                            <img src="@Url.Content("~/Content/LandingPage/")images/about1.jpg" class="img-responsive" alt="PhotoCall">
+                        </div>
+                        <div class="banner_bottom_left">
+                            <h4>How We Can Help</h4>
+                            <p>ProRecruit has the tools, expertise, and advice to help make you a stronger candidate for top positions. Our platform is specifically designed for focused professional who is ready for the next step and wants to continue moving up in their career.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="respon_info_img">
+                            <img src="@Url.Content("~/Content/LandingPage/")images/about2.jpg" class="img-responsive" alt="PhotoCall">
+                        </div>
+                        <div class="banner_bottom_left">
+                            <h4>We Focus on Quality</h4>
+                            <p>We make sure all of our jobs posted are on the executive-level you need. Our site makes it easy to apply to quality jobs and track the progress of your applications.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="respon_info_img">
+                            <img src="@Url.Content("~/Content/LandingPage/")images/about3.jpg" class="img-responsive" alt="PhotoCall">
+                        </div>
+                        <div class="banner_bottom_left">
+                            <h4>Be Seen By the Best</h4>
+                            <p>As a ProRecruit member, you'll also get instant visibility to recruiters from over 200,000 companies that use ProRecruit to find the best talent for their most challenging $100K+ positions.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="news-main">
+            <div class="col-md-6 banner_bottom_left">
+                <div class="banner_bottom_pos">
+                    <div class="banner_bottom_pos_grid">
+                        <div class="col-xs-9 banner_bottom_grid_right">
+                            <h4>Connections</h4>
+                            <p>Get closer to the candidates that interest you the most with our smarter search and communications platform.</p>
+                            <div class="barWrapper">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="popOver" data-toggle="tooltip" data-placement="top" title="100%"> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 banner_bottom_left">
+                <div class="banner_bottom_pos">
+                    <div class="banner_bottom_pos_grid">
+                        <div class="col-xs-9 banner_bottom_grid_right">
+                            <h4>Solutions</h4>
+                            <p>Develop critical insights and make better-informed decisions with our powerful set of software, services and analytics.</p>
+                            <div class="barWrapper">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="popOver" data-toggle="tooltip" data-placement="top" title="100%"> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--//ab-->
+<!--/what-->
+<div class="works" id="services">
+    <div class="container">
+        <h3 class="tittle_w3ls cen">Why Choose Us</h3>
+        <div class="inner_sec_info_agile_w3_info">
+            <div class="ser-first">
+                <div class="col-md-3 ser-first-grid text-center">
+                    <div class="dodecagon">
+                        <div class="dodecagon-in">
+                            <div class="dodecagon-bg">
+                                <span class="far fa-newspaper" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>A Winning Resume</h3>
+                    <p>Get noticed with a strong resume that will catch a recruiter’s eye. We’ve reviewed over 1.5 million resumes and will help with word choice, format, and overall presentation.</p>
+                </div>
+                <div class="col-md-3 ser-first-grid text-center">
+                    <div class="dodecagon">
+                        <div class="dodecagon-in">
+                            <div class="dodecagon-bg">
+                                <span class="far fa-star" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>High Quality Jobs Only</h3>
+                    <p>Be matched with the right opportunities that you need. Our unique algorithms make sure that the jobs you see are the ones that fit you best.</p>
+                </div>
+                <div class="col-md-3 ser-first-grid text-center">
+                    <div class="dodecagon">
+                        <div class="dodecagon-in">
+                            <div class="dodecagon-bg">
+                                <span class="far fa-paper-plane" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Quick Apply</h3>
+                    <p>Receive job matches right in your inbox and apply with just two clicks. We’ll send you jobs from the companies that fit your search criteria.</p>
+                </div>
+                <div class="col-md-3 ser-first-grid text-center">
+                    <div class="dodecagon">
+                        <div class="dodecagon-in">
+                            <div class="dodecagon-bg">
+                                <span class="far fa-user" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Candidate Sourcing</h3>
+                    <p>Analyze historical data to source and predict the most fitting candidates for a position.</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--//what-->
+<!--/photographers-->
+<div class="banner_bottom" id="team">
+    <div class="container">
+        <h3 class="tittle_w3ls">Meet the Team</h3>
+        <div class="inner_sec_info_agile_w3_info">
+            <div class="ser-first">
+                <div class="col-6 col-md-4 photo-grid text-center">
+                    <div class="dodecagon t1">
+                        <div class="dodecagon-in t1">
+                            <div class="dodecagon-bg t1">
+
+                            </div>
+                        </div>
+                    </div>
+                    <h3>John Doe</h3>
+                    <p>Photographer</p>
+                    <div class="team_icons">
+                        <ul class="social-nav model-3d-0 footer-social social">
+                            <li>
+                                <a href="#" class="facebook">
+                                    <div class="front"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                    <div class="front"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="instagram">
+                                    <div class="front"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 photo-grid text-center">
+                    <div class="dodecagon t2">
+                        <div class="dodecagon-in t2">
+                            <div class="dodecagon-bg t2">
+
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Jesse Diaz</h3>
+                    <p>Photographer</p>
+                    <div class="team_icons">
+                        <ul class="social-nav model-3d-0 footer-social social">
+                            <li>
+                                <a href="#" class="facebook">
+                                    <div class="front"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                    <div class="front"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="instagram">
+                                    <div class="front"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 photo-grid text-center">
+                    <div class="dodecagon t3">
+                        <div class="dodecagon-in t3">
+                            <div class="dodecagon-bg t3">
+
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Ellisa Doe</h3>
+                    <p>Photographer</p>
+                    <div class="team_icons">
+                        <ul class="social-nav model-3d-0 footer-social social">
+                            <li>
+                                <a href="#" class="facebook">
+                                    <div class="front"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                    <div class="front"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="instagram">
+                                    <div class="front"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                    <div class="back"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/last-->
+<div class="banner_bottom">
+    <div class="container">
+        <h3 class="tittle_w3ls">Why ProRecruit?</h3>
+        <div class="inner_sec_info_agile_w3_info">
+            <div class="last_sec">
+                <div class="col-md-6 last-img-info-text">
+                    <p>
+                        We’ve designed an integrated approach that focuses our more innovative technology and expertise into powerful, easy to use solutions to help you find not only the best quality candidates, but more of them. To streamline the process so you can save time and money. And to help you make smarter decisions to improve your return on investment.
+                    </p>
+                </div>
+                <div class="col-md-6 last-img-info">
+                    <div class="dodecagon l1">
+                        <div class="dodecagon-in l1">
+                            <div class="dodecagon-bg l1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//last-->
+<!-- footer -->
+<div class="footer" id="contact">
+    <div class="footer_inner_info">
+        <!--/tabs-->
+        <div class="responsive_tabs">
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li>Contact Info</li>
+                    <li>Send Message</li>
+                    <li>View Map</li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <!--/tab_one-->
+                    <div class="tab1">
+                        <div class="tab-info">
+
+                            <div class="address">
+                                <div class="col-md-4 address-grid-w3ls-agile">
+                                    <div class="address-left">
+                                        <div class="dodecagon f1">
+                                            <div class="dodecagon-in f1">
+                                                <div class="dodecagon-bg f1">
+                                                    <span class="fas fa-phone-volume" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="address-right">
+                                        <h6>Phone Number</h6>
+                                        <p>0900-78601</p>
+
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="col-md-4 address-grid-w3ls-agile">
+                                    <div class="address-left">
+                                        <div class="dodecagon f1">
+                                            <div class="dodecagon-in f1">
+                                                <div class="dodecagon-bg f1">
+                                                    <span class="far fa-envelope" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="address-right">
+                                        <h6>Email Address</h6>
+                                        <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="col-md-4 address-grid-w3ls-agile">
+                                    <div class="address-left">
+                                        <div class="dodecagon f1">
+                                            <div class="dodecagon-in f1">
+                                                <div class="dodecagon-bg f1">
+                                                    <span class="fas fa-map-marker-alt" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="address-right">
+                                        <h6>Location</h6>
+                                        <p>
+                                            National Stadium Rd, Karsaz Faisal Cantonment, Karachi, Karachi City, Sindh
+
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//tab_one-->
+                    <div class="tab2">
+
+                        <div class="tab-info">
+                            <div class="contact_grid_right">
+                                <h6>Please fill this form to contact with us.</h6>
+                                <form action="#" method="post">
+                                    <div class="contact_left_grid">
+                                        <input type="text" name="Name" placeholder="Name" required="">
+                                        <input type="email" name="Email" placeholder="Email" required="">
+
+                                        <input type="text" name="Telephone" placeholder="Telephone" required="">
+                                        <input type="text" name="Subject" placeholder="Subject" required="">
+                                        <textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+                                        <input type="submit" value="Submit">
+                                        <input type="reset" value="Clear">
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--//tab_two-->
+                    <div class="tab3">
+
+                        <div class="tab-info">
+                            <div class="contact-map-wthree-agileits">
+
+                                <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJa-rqitE-sz4RqBpFDibbC_U&key=AIzaSyDcdRbfCThXVHCtB4xBzvJj49f7GJvaiNk"
+                                        width="600" height="450" frameborder="0" class="map" style="border:0" allowfullscreen=""></iframe>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <!--//tabs-->
+        <div class="clearfix"> </div>
+        <ul class="social-nav model-3d-0 footer-social social two">
+            <li>
+                <a href="#" class="facebook">
+                    <div class="front"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fab fa-facebook-f" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="twitter">
+                    <div class="front"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="instagram">
+                    <div class="front"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="pinterest">
+                    <div class="front"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+                </a>
+            </li>
+        </ul>
+        <p class="copy-right">&copy 2018 ProRecruit. All rights reserved</p>
+    </div>
+</div>
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+

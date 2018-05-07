@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProRecruit.JobQualification>
+@{
+    ViewBag.Title = "QualificationMulitpleView";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<div class="col-sm-8">
+    <div class="card border border-primary">
+        <div class="card-header">
+            <strong class="card-title"><b>Your Qualification</b></strong>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Qualification Name</th>
+                        <th scope="col">Result Type</th>
+                        <th scope="col">Total GPA</th>
+                        <th scope="col">Total Grade</th>
+                        <th scope="col">Total Percentage</th>
+                        <th scope="col">Your GPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Qualification.QualificationName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ResultType)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalGPA)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalGrade)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalPercentage)</td>
+                        <td>@Html.DisplayFor(modelItem => item.YourGPA)</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {@class = "btn btn-primary" })</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ProRecruit.CandidateExperience>
+@{
+    ViewBag.Title = "ExperienceMultipleView";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+@if (!Model.Any())
+{
+    <div class="container" style="text-align:center;">
+        <h1>You haven't added any Experience yet!</h1>
+    </div>
+}
+else
+{
+    <div class="col-lg-12">
+        <div class="card border border-primary">
+            <div class="card-header">
+                <strong class="card-title"><b>Your Experience</b></strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Organization Name</th>
+                            <th scope="col">Position Held</th>
+                            <th scope="col">From Date</th>
+                            <th scope="col">To Date</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.OrganizationName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PositionHeld)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FromDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ToDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Country)</td>
+                            <td>@Html.DisplayFor(modelItem => item.City)</td>
+                            <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,335 @@
+﻿@model ProRecruit.Candidate
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_CreateSeekerOrganization.cshtml";
+}
+<div class="center-container">
+    <div class="main">
+        <h1 class="w3layouts_head">Job Seeker</h1>
+        <div class="w3layouts_main_grid">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>First Name</label>
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Last Name</label>
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Date of Birth </label>
+                        @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Gender</label>
+                        @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>
+                                {
+                                new SelectListItem{ Text = "Select One"},
+                                new SelectListItem{ Text = "Male", Value = "Male" },
+                                new SelectListItem{ Text = "Female", Value = "Female" },
+                                new SelectListItem{ Text = "Other", Value = "Other" }
+                                }, "", new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.Gender)
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Marital Status</label>
+                        @Html.DropDownListFor(model => model.MaritalStatus, new List<SelectListItem>
+                                {
+                                new SelectListItem{ Text = "Select One" },
+                                new SelectListItem{ Text = "Married", Value = "Married" },
+                                new SelectListItem{ Text = "Single", Value = "Single" },
+                                new SelectListItem{ Text = "Divorced", Value = "Divorced" },
+                                new SelectListItem{ Text = "Seperated", Value = "Seperated" },
+                                new SelectListItem{ Text = "Widow/er", Value = "Widow" },
+
+                                }, "", new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Nationality</label>
+                        @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Country</label>
+                        <select id="Country"></select>
+                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>State</label>
+                        <select id="State"></select>
+                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>City</label>
+                        <select id="City"></select>
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>CNIC</label>
+                        @Html.EditorFor(model => model.CNIC, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.CNIC, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Address</label>
+                        @Html.TextAreaFor(model => model.CurrentAddress, new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.CurrentAddress, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Contact</label>
+                        @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Industry</label>
+                        @Html.DropDownList("Industry", null, htmlAttributes: new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.Industry, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Functonal Area</label>
+                        @Html.DropDownList("FunctionalArea", null, htmlAttributes: new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.FunctionalArea, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Career Level</label>
+                        @Html.DropDownList("CareerLevel", null, htmlAttributes: new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.CareerLevel, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Current Salary</label>
+                        @Html.DropDownListFor(model => model.CurrentSalary,
+                                 new List<SelectListItem> {
+                                    new SelectListItem{ Text = "Select One" },
+                                    new SelectListItem{ Text = "Not Applicable", Value = "N/A"},
+                                    new SelectListItem{ Text = "5,000 - 5,999", Value = "5000"},
+                                    new SelectListItem{ Text = "6,000 - 6,999", Value = "6000"},
+                                    new SelectListItem{ Text = "7,000 - 7,999", Value = "7000"},
+                                    new SelectListItem{ Text = "8,000 - 8,999", Value = "8000"},
+                                    new SelectListItem{ Text = "9,000 - 9,999", Value = "9000"},
+                                    new SelectListItem{ Text = "10,000 - 10,999", Value = "10000"},
+                                    new SelectListItem{ Text = "11,000 - 11,999", Value = "11000"},
+                                    new SelectListItem{ Text = "12,000 - 12,999", Value = "12000"},
+                                    new SelectListItem{ Text = "13,000 - 13,999", Value = "13000"},
+                                    new SelectListItem{ Text = "14,000 - 14,999", Value = "14000"},
+                                    new SelectListItem{ Text = "15,000 - 15,999", Value = "15000"},
+                                    new SelectListItem{ Text = "16,000 - 16,999", Value = "16000"},
+                                    new SelectListItem{ Text = "17,000 - 17,999", Value = "17000"},
+                                    new SelectListItem{ Text = "18,000 - 18,999", Value = "18000"},
+                                    new SelectListItem{ Text = "19,000 - 19,999", Value = "19000"},
+                                    new SelectListItem{ Text = "20,000 - 24,999", Value = "20000"},
+                                    new SelectListItem{ Text = "25,000 - 29,000", Value = "25000"},
+                                    new SelectListItem{ Text = "30,000 - 34,999", Value = "30000"},
+                                    new SelectListItem{ Text = "35,000 - 39,999", Value = "35000"},
+                                    new SelectListItem{ Text = "40,000 - 44,999", Value = "40000"},
+                                    new SelectListItem{ Text = "45,000 - 49,999", Value = "45000"},
+                                    new SelectListItem{ Text = "50,000 - 59,999", Value = "50000"},
+                                    new SelectListItem{ Text = "60,000 - 69,999", Value = "60000"},
+                                    new SelectListItem{ Text = "70,000 - 79,999", Value = "70000"},
+                                    new SelectListItem{ Text = "80,000 - 89,999", Value = "80000"},
+                                    new SelectListItem{ Text = "90,000 - 99,999", Value = "90000"},
+                                    new SelectListItem{ Text = "100,000 - 124,999", Value = "100000"},
+                                    new SelectListItem{ Text = "125,000 - 149,999", Value = "125000"},
+                                    new SelectListItem{ Text = "150,000 - 174,999", Value = "150000"},
+                                    new SelectListItem{ Text = "175,000 - 199,999", Value = "175000"},
+                                    new SelectListItem{ Text = "200,000 - 249,999", Value = "200000"},
+                                    new SelectListItem{ Text = "250,000 - 299,999", Value = "250000"},
+                                    new SelectListItem{ Text = "300,000 - 349,999", Value = "300000"},
+                                    new SelectListItem{ Text = "350,000 - 399,999", Value = "350000"},
+                                    new SelectListItem{ Text = "400,000 - 449,999", Value = "400000"},
+                                    new SelectListItem{ Text = "450,000 - 499,999", Value = "450000"},
+                                    new SelectListItem{ Text = "500,000 - 549,999", Value = "500000"},
+                                    new SelectListItem{ Text = "550,000 - 599,999", Value = "550000"},
+                                    new SelectListItem{ Text = "600,000+", Value = "600001"},
+                                       }, "", new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.CurrentSalary, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Expected Salary</label>
+                        @Html.DropDownListFor(model => model.ExpectedSalary,
+                                 new List<SelectListItem> {
+                                    new SelectListItem{ Text = "Select One" },
+                                    new SelectListItem{ Text = "Not Applicable", Value = "N/A"},
+                                    new SelectListItem{ Text = "5,000 - 5,999", Value = "5000"},
+                                    new SelectListItem{ Text = "6,000 - 6,999", Value = "6000"},
+                                    new SelectListItem{ Text = "7,000 - 7,999", Value = "7000"},
+                                    new SelectListItem{ Text = "8,000 - 8,999", Value = "8000"},
+                                    new SelectListItem{ Text = "9,000 - 9,999", Value = "9000"},
+                                    new SelectListItem{ Text = "10,000 - 10,999", Value = "10000"},
+                                    new SelectListItem{ Text = "11,000 - 11,999", Value = "11000"},
+                                    new SelectListItem{ Text = "12,000 - 12,999", Value = "12000"},
+                                    new SelectListItem{ Text = "13,000 - 13,999", Value = "13000"},
+                                    new SelectListItem{ Text = "14,000 - 14,999", Value = "14000"},
+                                    new SelectListItem{ Text = "15,000 - 15,999", Value = "15000"},
+                                    new SelectListItem{ Text = "16,000 - 16,999", Value = "16000"},
+                                    new SelectListItem{ Text = "17,000 - 17,999", Value = "17000"},
+                                    new SelectListItem{ Text = "18,000 - 18,999", Value = "18000"},
+                                    new SelectListItem{ Text = "19,000 - 19,999", Value = "19000"},
+                                    new SelectListItem{ Text = "20,000 - 24,999", Value = "20000"},
+                                    new SelectListItem{ Text = "25,000 - 29,000", Value = "25000"},
+                                    new SelectListItem{ Text = "30,000 - 34,999", Value = "30000"},
+                                    new SelectListItem{ Text = "35,000 - 39,999", Value = "35000"},
+                                    new SelectListItem{ Text = "40,000 - 44,999", Value = "40000"},
+                                    new SelectListItem{ Text = "45,000 - 49,999", Value = "45000"},
+                                    new SelectListItem{ Text = "50,000 - 59,999", Value = "50000"},
+                                    new SelectListItem{ Text = "60,000 - 69,999", Value = "60000"},
+                                    new SelectListItem{ Text = "70,000 - 79,999", Value = "70000"},
+                                    new SelectListItem{ Text = "80,000 - 89,999", Value = "80000"},
+                                    new SelectListItem{ Text = "90,000 - 99,999", Value = "90000"},
+                                    new SelectListItem{ Text = "100,000 - 124,999", Value = "100000"},
+                                    new SelectListItem{ Text = "125,000 - 149,999", Value = "125000"},
+                                    new SelectListItem{ Text = "150,000 - 174,999", Value = "150000"},
+                                    new SelectListItem{ Text = "175,000 - 199,999", Value = "175000"},
+                                    new SelectListItem{ Text = "200,000 - 249,999", Value = "200000"},
+                                    new SelectListItem{ Text = "250,000 - 299,999", Value = "250000"},
+                                    new SelectListItem{ Text = "300,000 - 349,999", Value = "300000"},
+                                    new SelectListItem{ Text = "350,000 - 399,999", Value = "350000"},
+                                    new SelectListItem{ Text = "400,000 - 449,999", Value = "400000"},
+                                    new SelectListItem{ Text = "450,000 - 499,999", Value = "450000"},
+                                    new SelectListItem{ Text = "500,000 - 549,999", Value = "500000"},
+                                    new SelectListItem{ Text = "550,000 - 599,999", Value = "550000"},
+                                    new SelectListItem{ Text = "600,000+", Value = "600001"},
+                                      }, "", new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.ExpectedSalary, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Summary</label>
+                        @Html.TextAreaFor(model => model.Summary, new { @class = "" })
+                        @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="content-w3ls">
+                    <div class="form-w3ls">
+                        <div class="content-wthree2">
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                @Html.HiddenFor(model => model.City, new { id = "hiddenCity" })
+                @Html.HiddenFor(model => model.State, new { id = "hiddenState" })
+                @Html.HiddenFor(model => model.Country, new { id = "hiddenCountry" })
+
+                <div class="w3_main_grid">
+                    <div class="w3_main_grid_right">
+                        <input type="submit" id="Create" value="Create" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetCountries();
+        GetStates();
+        GetCities();
+    });
+
+    $("#Create").click(function () {
+        var valCity = $("#City :selected").text();
+        var valState = $("#State :selected").text();
+        var valCountry = $("#Country :selected").text();
+
+        $("#hiddenCity").val(valCity);
+        $("#hiddenCountry").val(valCountry);
+        $("#hiddenState").val(valState);
+    });
+
+    function GetCountries() {
+        $.ajax({
+            type: "GET",
+            url: "http://api.geonames.org/countryInfoJSON?formatted=true&lang=en&style=full&username=hamzaws9",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            success: function (data) {
+                $("#Country").empty();
+                $("#Country").append($('<option />', { value: -1, text: 'Select Country' }));
+                $(data.geonames).each(function (index, item) {
+                    $("#Country").append($('<option />', { value: item.geonameId, text: item.countryName }));
+                });
+            },
+            error: function (data) {
+                alert("Failed to get countries.");
+            }
+        });
+    }
+
+    function GetStates() {
+        $("#Country").change(function () {
+            GetChildren($(this).val(), "State", $("#State"));
+        });
+    }
+
+    function GetCities() {
+        $("#State").change(function () {
+            GetChildren($(this).val(), "City", $("#City"));
+        });
+    };
+
+    function GetChildren(geoNameId, childType, ddlSelector) {
+        $.ajax({
+            type: "GET",
+            url: "http://api.geonames.org/childrenJSON?geonameId=" + geoNameId + "&username=hamzaws9",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            success: function (data) {
+                $(ddlSelector).empty();
+                $(ddlSelector).append($('<option />', { value: -1, text: 'Select ' + childType }));
+                $(data.geonames).each(function (index, item) {
+                    $(ddlSelector).append($('<option />', { value: item.geonameId, text: item.name }));
+                });
+            },
+            error: function (data) {
+                alert("failed to get data");
+            }
+        });
+    }
+</script>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -1,0 +1,89 @@
+﻿@model ProRecruit.Organization
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_CreateSeekerOrganization.cshtml";
+}
+<div class="center-container">
+    <div class="main">
+        <h1 class="w3layouts_head">Job Seeker</h1>
+        <div class="w3layouts_main_grid">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Name</label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Industry</label>
+                        @Html.EditorFor(model => model.Industry, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Industry, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Contact Person</label>
+                        @Html.EditorFor(model => model.ContactPerson, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.ContactPerson, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Phone Number</label>
+                        @Html.EditorFor(model => model.Phonenumber, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Phonenumber, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Fax No</label>
+                        @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>No of Employees</label>
+                        @Html.EditorFor(model => model.NoOfEmployee, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.NoOfEmployee, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Operating Since</label>
+                        @Html.EditorFor(model => model.OperatingSince, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.OperatingSince, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Stock Symbol</label>
+                        @Html.EditorFor(model => model.StockSymbol, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.StockSymbol, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_agileits_main_grid w3l_main_grid">
+                    <span class="agileits_grid">
+                        <label>Email</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </span>
+                </div>
+                <div class="w3_main_grid">
+                    <div class="w3_main_grid_right">
+                        <input type="submit" value="Create" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

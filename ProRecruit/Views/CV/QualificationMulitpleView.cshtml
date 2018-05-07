@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProRecruit.CandidateQualification>
+@{
+    ViewBag.Title = "QualificationMulitpleView";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+@if (!Model.Any())
+{
+    <div class="container" style="text-align:center;">
+        <h1>You haven't added any Qualification yet!</h1>
+    </div>
+}
+else
+{
+    <div class="col-lg-12">
+        <div class="card border border-primary">
+            <div class="card-header">
+                <strong class="card-title"><b>Your Skills</b></strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Completed Date</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Institution</th>
+                            <th scope="col">Degree Title</th>
+                            <th scope="col">Result Type</th>
+                            <th scope="col">Total GPA</th>
+                            <th scope="col">Your GPA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.DateCompleted)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Qualification.QualificationName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.QualificationType.TypeName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Institution)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Degreetitle)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ResultType)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TotalGPA)</td>
+                            <td>@Html.DisplayFor(modelItem => item.YourGPA)</td>
+                            <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+                        </tr>
+                }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
