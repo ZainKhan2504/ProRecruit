@@ -165,24 +165,6 @@ namespace ProRecruit.Controllers
             return Json("Deleted");
         }
 
-        public List<Candidate> ReturnMatchingCandidates(int? id)
-        {
-            if (id == null)
-            {
-                return null;
-            }
-
-            var allCandidates = (from candidate in db.Candidates
-                                join candidateJobs in db.CandidateJobs
-                                on candidate.UserId equals candidateJobs.UserId
-                                where candidateJobs.JobId == id
-                                select candidate).ToList();
-
-            int jobHighestQualification = 
-
-            return allCandidates;
-        }
-
         [HttpPost]
         public JsonResult GetTypesByQualification(string id)
         {

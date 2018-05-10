@@ -12,7 +12,7 @@ namespace ProRecruit
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    
     public partial class CandidateProject
     {
         public int Id { get; set; }

@@ -21,6 +21,7 @@ namespace ProRecruit
             this.CandidateSavedJobs = new HashSet<CandidateSavedJob>();
             this.JobQualifications = new HashSet<JobQualification>();
             this.JobSkills = new HashSet<JobSkill>();
+            this.MatchedCandidates = new HashSet<MatchedCandidate>();
         }
     
         public Nullable<System.DateTime> DatePublished { get; set; }
@@ -39,6 +40,7 @@ namespace ProRecruit
         public string City { get; set; }
         public string Country { get; set; }
         public string State { get; set; }
+        public Nullable<int> HighestDegree { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CandidateJob> CandidateJobs { get; set; }
@@ -49,5 +51,7 @@ namespace ProRecruit
         public virtual ICollection<JobQualification> JobQualifications { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobSkill> JobSkills { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MatchedCandidate> MatchedCandidates { get; set; }
     }
 }

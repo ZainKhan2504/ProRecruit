@@ -44,10 +44,12 @@ namespace ProRecruit
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<JobQualification> JobQualifications { get; set; }
         public virtual DbSet<JobSkill> JobSkills { get; set; }
+        public virtual DbSet<MatchedCandidate> MatchedCandidates { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<Qualification> Qualifications { get; set; }
         public virtual DbSet<QualificationType> QualificationTypes { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<SkillExperience> SkillExperiences { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

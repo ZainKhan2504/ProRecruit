@@ -11,17 +11,13 @@ namespace ProRecruit
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
-    public partial class CandidateLanguage
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        [Display(Name = "Language")]
-        public string LanguageTitle { get; set; }
-        [Display(Name = "Proficiency With Language")]
-        public string ProficiencyWithLanguage { get; set; }
-        public string UserId { get; set; }
-
-        public virtual Candidate Candidate { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

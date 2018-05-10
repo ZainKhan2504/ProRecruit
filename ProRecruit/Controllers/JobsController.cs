@@ -145,6 +145,83 @@ namespace ProRecruit.Controllers
             return Json(values);
         }
 
+        public int GetLatestDegree(int? id)
+        {
+            int latestDegree = -1;
+            List<int> degrees = new List<int>();
+
+            if (id == null)
+            {
+                return latestDegree;
+            }
+
+            var jobQualifications = db.JobQualifications.Where(jq => jq.JobId == id).ToList();
+            if (jobQualifications.Count == 0)
+            {
+                return latestDegree;
+            }
+            for (int i = 0; i < jobQualifications.Count; i++)
+            {
+                int degree = jobQualifications[i].DegreeLevel.Value;
+                degrees.Add(degree);
+            }
+
+            List<int> allFetchedValues = new List<int>();
+
+            for (int i = 0; i < degrees.Count; i++)
+            {
+                if (degrees[i] >= 1107 && degrees[i] <= 1113)
+                {
+                    allFetchedValues.Add(degrees[i]);
+                }
+            }
+
+            latestDegree = allFetchedValues.Max();
+
+            return latestDegree;
+        }
+
+        public List<Candidate> ReturnMatchingCandidates(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
+            var allCandidates = (from candidate in db.Candidates
+                                 join candidateJobs in db.CandidateJobs
+                                 on candidate.UserId equals candidateJobs.UserId
+                                 where candidateJobs.JobId == id
+                                 select candidate).ToList();
+            Job job = db.Jobs.Find(id);
+            int jobHighestQualification = job.HighestDegree.Value;
+            var jobRequiredSkills = (from skill in db.Skills
+                                     join jobSkills in db.JobSkills
+                                     on skill.Id equals jobSkills.SkillId
+                                     where jobSkills.JobId == id
+                                     select skill.SkillName).ToList();
+            List<Candidate> selectedCandidates = new List<Candidate>();
+            for (int i = 0; i < allCandidates.Count; i++)
+            {
+                if (allCandidates[i].HighestDegree >= jobHighestQualification)
+                {
+                    string currentCandidateId = allCandidates[i].UserId;
+                    List<String> candidateSkillsList = new List<String>();
+                    var candidateSkills = db.CandidateSkills.Where(cs => cs.UserId == currentCandidateId).ToList();
+                    for (int j = 0; j < candidateSkills.Count; j++)
+                    {
+                        candidateSkillsList.Add(candidateSkills[j].Skill.SkillName);
+                    }
+                    //var intersect = candidateSkillsList.Intersect(jobRequiredSkills);
+                    bool list2InList1 = !jobRequiredSkills.Except(candidateSkillsList).Any();
+                    if (list2InList1)
+                    {
+                        selectedCandidates.Add(allCandidates[i]);
+                    }
+                }
+            }
+            return selectedCandidates;
+        }
+
         [Authorize]
         public ActionResult AddJobQualifications(int? id)
         {
@@ -171,10 +248,18 @@ namespace ProRecruit.Controllers
                     {
                         db.Entry(jq).State = EntityState.Modified;
                         db.SaveChanges();
+                        Job job = db.Jobs.Find(jq.JobId);
+                        job.HighestDegree = GetLatestDegree(jq.JobId);
+                        db.Entry(job).State = EntityState.Modified;
+                        db.SaveChanges();
                     }
                     else
                     {
                         db.JobQualifications.Add(jq);
+                        db.SaveChanges();
+                        Job job = db.Jobs.Find(jq.JobId);
+                        job.HighestDegree = GetLatestDegree(jq.JobId);
+                        db.Entry(job).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }

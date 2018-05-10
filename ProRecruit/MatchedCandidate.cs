@@ -11,17 +11,14 @@ namespace ProRecruit
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
-    public partial class CandidateLanguage
+    public partial class MatchedCandidate
     {
         public int Id { get; set; }
-        [Display(Name = "Language")]
-        public string LanguageTitle { get; set; }
-        [Display(Name = "Proficiency With Language")]
-        public string ProficiencyWithLanguage { get; set; }
-        public string UserId { get; set; }
-
+        public string CandidateId { get; set; }
+        public Nullable<int> JobId { get; set; }
+    
         public virtual Candidate Candidate { get; set; }
+        public virtual Job Job { get; set; }
     }
 }

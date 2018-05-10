@@ -12,7 +12,7 @@ namespace ProRecruit
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Candidate
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,6 +25,7 @@ namespace ProRecruit
             this.CandidateQualifications = new HashSet<CandidateQualification>();
             this.CandidateSavedJobs = new HashSet<CandidateSavedJob>();
             this.CandidateSkills = new HashSet<CandidateSkill>();
+            this.MatchedCandidates = new HashSet<MatchedCandidate>();
         }
 
         [Display(Name = "First Name")]
@@ -90,5 +91,7 @@ namespace ProRecruit
         public virtual ICollection<CandidateSavedJob> CandidateSavedJobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CandidateSkill> CandidateSkills { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MatchedCandidate> MatchedCandidates { get; set; }
     }
 }
