@@ -11,6 +11,7 @@ namespace ProRecruit
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Organization
     {
@@ -19,20 +20,32 @@ namespace ProRecruit
         {
             this.Jobs = new HashSet<Job>();
         }
-    
+
         public string UserId { get; set; }
+        [Display(Name = "Name")]
+        [Required(ErrorMessage = " Name is Required")]
         public string Name { get; set; }
         public string Industry { get; set; }
+        [Display(Name = "Contact Person")]
+        [Required(ErrorMessage = "Contact Person is Required")]
         public string ContactPerson { get; set; }
+        [Required(ErrorMessage = "Contact is required\n Format is 0000-0000000")]
+        [RegularExpression(@"^[0-9]{4}-[0-9]{7}$", ErrorMessage = "Use format 0000-0000000")]
         public string Phonenumber { get; set; }
+        [RegularExpression(@"^[0-9]{4}-[0-9]{7}$", ErrorMessage = "Use format 0000-0000000")]
         public string Fax { get; set; }
+        [Display(Name = "Number of employees")]
         public string NoOfEmployee { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Operating Since")]
         public string OperatingSince { get; set; }
+        [Display(Name = "Stock Symbol")]
         public string StockSymbol { get; set; }
+        [Display(Name = "Company Logo")]
         public string CompanyLogo { get; set; }
         public string PostedJobs { get; set; }
         public string Email { get; set; }
-    
+
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }

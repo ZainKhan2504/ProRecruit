@@ -8896,4 +8896,7 @@ a.text-dark:focus, a.text-dark:hover {
     border: 1px solid #ddd !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
+.hiddenattr {
+    display: none !important;
+    visibility: hidden !important;
+    /*# sourceMappingURL=bootstrap.css.map */

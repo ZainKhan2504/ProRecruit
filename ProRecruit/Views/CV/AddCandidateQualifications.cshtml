@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="divDegreeType" class="row form-group col-lg-6 hidden">
+                                    <div id="divDegreeType" class="row form-group col-lg-6 hiddenattr">
                                         <div class="col col-md-3">@Html.LabelFor(model => model.DegreeType, htmlAttributes: new { @class = "form-control-label" })</div>
                                         <div class="col-12 col-md-9">
                                             <select id="DegreeType" class="form-control"></select>
@@ -171,21 +171,21 @@
                                         </div>
                                     </div>
 
-                                    <div id="divResultType" class="row form-group col-lg-6 hidden">
+                                    <div id="divResultType" class="row form-group col-lg-6 hiddenattr">
                                         <div class="col col-md-3">@Html.LabelFor(model => model.ResultType, htmlAttributes: new { @class = "form-control-labe" })</div>
                                         <div class="col-12 col-md-9">
                                             @Html.DropDownListFor(model => model.ResultType, new List<SelectListItem>
-                                                                                                                                                    {
-                                                                                                                                                        new SelectListItem{ Text = "Select One" },
-                                                                                                                                                        new SelectListItem{ Text = "Grade", Value = "Grade" },
-                                                                                                                                                        new SelectListItem{ Text = "GPA", Value = "GPA" },
-                                                                                                                                                        new SelectListItem{ Text = "Percentage", Value = "Percentage" }
-                                                                                                                                                    }, "", new { @class = "form-control" })
+                                            {
+                                            new SelectListItem{ Text = "Select One" },
+                                            new SelectListItem{ Text = "Grade", Value = "Grade" },
+                                            new SelectListItem{ Text = "GPA", Value = "GPA" },
+                                            new SelectListItem{ Text = "Percentage", Value = "Percentage" }
+                                            }, "", new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.ResultType)
                                         </div>
                                     </div>
 
-                                    <div id="divTotalGpa" class="row form-group col-lg-6 hidden">
+                                    <div id="divTotalGpa" class="row form-group col-lg-6 hiddenattr">
                                         <div class="col col-md-3">@Html.LabelFor(model => model.TotalGPA, htmlAttributes: new { @class = "form-control-label" })</div>
                                         <div class="col-12 col-md-9">
                                             <select id="ddlTotalGPA" class="form-control">
@@ -197,7 +197,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="divYourGpa" class="row form-group col-lg-6 hidden">
+                                    <div id="divYourGpa" class="row form-group col-lg-6 hiddenattr">
                                         <div class="col col-md-3">@Html.LabelFor(model => model.YourGPA, htmlAttributes: new { @class = "form-control-label" })</div>
                                         <div class="col-12 col-md-9">
                                             <select id="ddlYourGPA" class="form-control"></select>
@@ -205,7 +205,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="divTotalGrade" class="row form-group col-lg-6 hidden">
+                                    <div id="divTotalGrade" class="row form-group col-lg-6 hiddenattr">
                                         <div class="col col-md-3">@Html.LabelFor(model => model.TotalGrade, htmlAttributes: new { @class = "form-control-label" })</div>
                                         <div class="col-12 col-md-9">
                                             <select id="ddlTotalGrade" class="form-control">
@@ -223,7 +223,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="divTotalPercentage" class="row form-group col-lg-6 hidden">
+                                    <div id="divTotalPercentage" class="row form-group col-lg-6 hiddenattr">
                                         <div class="col col-md-3">@Html.LabelFor(model => model.TotalPercentage, htmlAttributes: new { @class = "form-control-label" })</div>
                                         <div class="col-12 col-md-9">
                                             <select id="ddlTotalPercentage" class="form-control"></select>
@@ -231,7 +231,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="divResultStatus" class="row form-group col-lg-6 hidden">
+                                    <div id="divResultStatus" class="row form-group col-lg-6 hiddenattr">
 
                                         <div class="col col-md-3">@Html.LabelFor(model => model.ResultStatus, htmlAttributes: new { @class = "form-control-label" })</div>
                                         <div class="col-12 col-md-9">
@@ -285,21 +285,21 @@
     })
 
     $("#ResultType").change(function () {
-        $("#divTotalGrade").addClass('hidden');
-        $("#divTotalGpa").addClass('hidden');
-        $("#divTotalPercentage").addClass('hidden');
-        $("#divYourGpa").addClass('hidden');
+        $("#divTotalGrade").addClass('hiddenattr');
+        $("#divTotalGpa").addClass('hiddenattr');
+        $("#divTotalPercentage").addClass('hiddenattr');
+        $("#divYourGpa").addClass('hiddenattr');
 
         var val = $("#ResultType").val();
 
         if(val == 'Grade'){
-            $("#divTotalGrade").removeClass('hidden');
+            $("#divTotalGrade").removeClass('hiddenattr');
         }
         if (val == 'GPA') {
-            $("#divTotalGpa").removeClass('hidden');
+            $("#divTotalGpa").removeClass('hiddenattr');
         }
         if (val == 'Percentage') {
-            $("#divTotalPercentage").removeClass('hidden');
+            $("#divTotalPercentage").removeClass('hiddenattr');
             $.ajax({
                 type: "POST",
                 url: "/CV/RetrunValuesOfPercentage/",
@@ -323,14 +323,14 @@
     });
 
     $("#ddlTotalGPA").change(function () {
-        $("#divYourGpa4").addClass('hidden');
-        $("#divYourGpa5").addClass('hidden');
+        $("#divYourGpa4").addClass('hiddenattr');
+        $("#divYourGpa5").addClass('hiddenattr');
         $("#ddlYourGPA").empty();
 
         var val = $("#ddlTotalGPA").val();
 
         if (val == '4') {
-            $("#divYourGpa").removeClass('hidden');
+            $("#divYourGpa").removeClass('hiddenattr');
             $.ajax({
                 type: "POST",
                 url: "/CV/ReturnValuesOfGPA4/",
@@ -353,7 +353,7 @@
             })
         }
         if (val == '5') {
-            $("#divYourGpa").removeClass('hidden');
+            $("#divYourGpa").removeClass('hiddenattr');
             $.ajax({
                 type: "POST",
                 url: "/CV/ReturnValuesOfGPA5/",
@@ -402,55 +402,55 @@
     function CheckForResultStaus() {
         var valQualificationLevel = $("#DegreeLevelId :selected").text();
         if (valQualificationLevel == 'Non-Matriculation') {
-            $("#divResultStatus").removeClass('hidden');
+            $("#divResultStatus").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'Certification') {
-            $("#divResultStatus").removeClass('hidden');
+            $("#divResultStatus").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'Diploma') {
-            $("#divResultStatus").removeClass('hidden');
+            $("#divResultStatus").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'Short Course') {
-            $("#divResultStatus").removeClass('hidden');
+            $("#divResultStatus").removeClass('hiddenattr');
         }
     }
 
     function CheckForResultType() {
         var valQualificationLevel = $("#DegreeLevelId :selected").text();
         if (valQualificationLevel == 'Matriculation/O-Level') {
-            $("#divDegreeType").removeClass('hidden');
-            $("#divResultType").removeClass('hidden');
+            $("#divDegreeType").removeClass('hiddenattr');
+            $("#divResultType").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'Intermediate/A-Level') {
-            $("#divDegreeType").removeClass('hidden');
-            $("#divResultType").removeClass('hidden');
+            $("#divDegreeType").removeClass('hiddenattr');
+            $("#divResultType").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'Bachelors') {
-            $("#divDegreeType").removeClass('hidden');
-            $("#divResultType").removeClass('hidden');
+            $("#divDegreeType").removeClass('hiddenattr');
+            $("#divResultType").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'Masters') {
-            $("#divDegreeType").removeClass('hidden');
-            $("#divResultType").removeClass('hidden');
+            $("#divDegreeType").removeClass('hiddenattr');
+            $("#divResultType").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'MPhil/MS') {
-            $("#divDegreeType").removeClass('hidden');
-            $("#divResultType").removeClass('hidden');
+            $("#divDegreeType").removeClass('hiddenattr');
+            $("#divResultType").removeClass('hiddenattr');
         }
         if (valQualificationLevel == 'PHD/Doctorate') {
-            $("#divDegreeType").removeClass('hidden');
-            $("#divResultType").removeClass('hidden');
+            $("#divDegreeType").removeClass('hiddenattr');
+            $("#divResultType").removeClass('hiddenattr');
         }
     }
 
     $("#DegreeLevelId").change(function () {
-        $("#divDegreeType").addClass('hidden');
-        $("#divResultType").addClass('hidden');
-        $("#divResultStatus").addClass('hidden');
-        $("#divTotalGpa").addClass('hidden');
-        $("#divYourGPA").addClass('hidden');
-        $("#divTotalPercentage").addClass('hidden');
-        $("#divTotalGrade").addClass('hidden');
+        $("#divDegreeType").addClass('hiddenattr');
+        $("#divResultType").addClass('hiddenattr');
+        $("#divResultStatus").addClass('hiddenattr');
+        $("#divTotalGpa").addClass('hiddenattr');
+        $("#divYourGPA").addClass('hiddenattr');
+        $("#divTotalPercentage").addClass('hiddenattr');
+        $("#divTotalGrade").addClass('hiddenattr');
         CheckForResultStaus();
         CheckForResultType();
         //var qualificationId = $("#QualificationId :selected").text();

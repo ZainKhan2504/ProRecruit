@@ -199,24 +199,25 @@ namespace ProRecruit.Controllers
                                      on skill.Id equals jobSkills.SkillId
                                      where jobSkills.JobId == id
                                      select skill.SkillName).ToList();
+            HashSet<String> jobRequiredSkillsSet = new HashSet<string>(jobRequiredSkills);
             List<Candidate> selectedCandidates = new List<Candidate>();
             for (int i = 0; i < allCandidates.Count; i++)
             {
                 if (allCandidates[i].HighestDegree >= jobHighestQualification)
                 {
                     string currentCandidateId = allCandidates[i].UserId;
-                    List<String> candidateSkillsList = new List<String>();
+                    HashSet<String> candidateSkillsList = new HashSet<string>();
                     var candidateSkills = db.CandidateSkills.Where(cs => cs.UserId == currentCandidateId).ToList();
                     for (int j = 0; j < candidateSkills.Count; j++)
                     {
                         candidateSkillsList.Add(candidateSkills[j].Skill.SkillName);
                     }
-                    //var intersect = candidateSkillsList.Intersect(jobRequiredSkills);
-                    bool list2InList1 = !jobRequiredSkills.Except(candidateSkillsList).Any();
-                    if (list2InList1)
+                    bool isSubset = jobRequiredSkillsSet.IsSubsetOf(candidateSkillsList);
+                    if (isSubset)
                     {
                         selectedCandidates.Add(allCandidates[i]);
                     }
+                    candidateSkillsList.Clear();
                 }
             }
             return selectedCandidates;

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cb3fb3cd69c1487b9a1711a019d9a28a" Name="Diagram1">
+      <Diagram DiagramId="4943fb61b3fa45f38d215f5300f97719" Name="Diagram1">
         <EntityTypeShape EntityType="ProRecruit.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ProRecruit.AspNetRole" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
         <EntityTypeShape EntityType="ProRecruit.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="ProRecruit.QualificationType" Width="1.5" PointX="11.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProRecruit.Skill" Width="1.5" PointX="11.25" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ProRecruit.SkillExperience" Width="1.5" PointX="11.25" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProRecruit.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ProRecruit.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ProRecruit.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ProRecruit.FK_Candidate_AspNetUsers" ManuallyRouted="false" />

@@ -67,13 +67,13 @@
                         @Html.ValidationMessageFor(model => model.StockSymbol, "", new { @class = "text-danger" })
                     </span>
                 </div>
-                <div class="w3_agileits_main_grid w3l_main_grid">
+                @*<div class="w3_agileits_main_grid w3l_main_grid">
                     <span class="agileits_grid">
                         <label>Email</label>
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </span>
-                </div>
+                </div>*@
                 <div class="w3_main_grid">
                     <div class="w3_main_grid_right">
                         <input type="submit" value="Create" />
